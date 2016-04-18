@@ -1,0 +1,13 @@
+# Default index page
+DirectoryIndex index.php
+
+# Prevent directory listing
+Options -Indexes
+
+# Remove file extensions
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
